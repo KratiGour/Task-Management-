@@ -1,0 +1,10 @@
+com\example\demo\DemoApplication.class
+com\example\demo\controller\TaskController.class
+com\example\demo\service\TaskService.class
+com\example\demo\entity\Task.class
+com\example\demo\config\SecurityConfig.class
+com\example\demo\entity\AuditLog.class
+com\example\demo\controller\AuditLogController.class
+com\example\demo\service\AuditLogService.class
+com\example\demo\repository\AuditLogRepository.class
+com\example\demo\repository\TaskRepository.class

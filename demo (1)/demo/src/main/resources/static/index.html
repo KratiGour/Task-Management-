@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Task Manager Dashboard</h1>
+        </header>
+
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <ul>
+                <li><a href="#" onclick="showTasks()" class="nav-link active">Tasks</a></li>
+                <li><a href="#" onclick="showAuditLogs()" class="nav-link">Audit Logs</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Tasks Section -->
+            <div id="tasks-section" class="section active">
+                <div class="section-header">
+                    <h2>Tasks</h2>
+                    <button onclick="openCreateModal()" class="btn btn-primary">Create Task</button>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search tasks..." onkeyup="searchTasks()">
+                </div>
+
+                <div class="table-container">
+                    <table id="tasksTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Created At</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tasksTableBody">
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination" id="pagination">
+                </div>
+            </div>
+
+            <!-- Audit Logs Section -->
+            <div id="audit-logs-section" class="section">
+                <div class="section-header">
+                    <h2>Audit Logs</h2>
+                </div>
+                
+                <div class="table-container">
+                    <table id="auditLogsTable">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>Action Type</th>
+                                <th>Task ID</th>
+                                <th>Updated Content</th>
+                            </tr>
+                        </thead>
+                        <tbody id="auditLogsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Create/Edit Task Modal -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Create Task</h3>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <form id="taskForm">
+                <div class="form-group">
+                    <label for="taskTitle">Title:</label>
+                    <input type="text" id="taskTitle" maxlength="100" required>
+                    <small>Max 100 characters</small>
+                </div>
+                <div class="form-group">
+                    <label for="taskDescription">Description:</label>
+                    <textarea id="taskDescription" maxlength="500" required></textarea>
+                    <small>Max 500 characters</small>
+                </div>
+                <div class="form-actions">
+                    <button type="button" onclick="closeModal()" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
